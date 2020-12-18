@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>nodeValue属性</title>
+ <link rel="stylesheet" type= "text/css" href="css/login.css"/ >
+</head>
+<body>
+<div class="body">
+    <div class="name"id="first">
+        <span class="account">用户名</span><input id="uname" class="username" type="text" onfocus="cue()" onblur="recue()">
+    </div>
+    <div class="password" id="second">
+        <span>设置密码</span><input id="psw" class="key" type="password" onfocus="inpassword()" onblur="outpassword()">
+    </div> 
+    <div>
+	   <input id="submit" type="button" value="立即注册" ></div>
+	</div>
+	<div id="right"></div>
+</body>
+   <script> 
+		var newpone = document.createElement("p");
+		var newptwo = document.createElement("p");
+        var newpthree = document.createElement("p");
+        var newpfour = document.createElement("p");
+        var newpfive = document.createElement("p");
+        var newpsix = document.createElement("p");
+		var textone = document.createTextNode("支持中文数字");
+		var texttwo = document.createTextNode("用户名不能为空");
+		var textthree = document.createTextNode("建议使用两种字符组合");
+		var textfour = document.createTextNode("密码不能为空");
+		var textfive = document.createTextNode(" ");
+
+        function cue(){ 
+        	var one = document.getElementById("first");
+            one.removeChild(first.lastChild);
+        	first.appendChild(newpone);
+        	newpone.appendChild(textone);
+        }   
+        function recue(){   
+        	var userName = document.getElementById("uname").value; 
+	        if(userName==""){  
+                var two = document.getElementById("first");
+                two.removeChild(two.lastChild);
+	            first.appendChild(newptwo);
+	            newptwo.appendChild(texttwo);
+	        }else if(!userName==""){
+                var three = document.getElementById('first');
+	        	  three.removeChild(three.lastChild);
+                first.appendChild(newpthree);
+                newpthree.appendChild(textfive);
+	        }   	
+        } 
+        
+        function inpassword(){
+            var one = document.getElementById("second");
+        	one.removeChild(one.lastChild);
+            second.appendChild(newpfour);
+            newpfour.appendChild(textthree);
+        }   
+        function outpassword(){   
+        	var password = document.getElementById("psw").value; 
+        	if(password==""){
+                var two = document.getElementById("second");
+                two.removeChild(two.lastChild);
+                second.appendChild(newpfive);
+                newpfive.appendChild(textfour);
+        	}
+            else if(!password==""){
+                 var three = document.getElementById("second");
+                three.removeChild(three.lastChild);
+                second.appendChild(newpsix);
+                newpsix.appendChild(textfive);
+            }
+        } 
+        submit.onclick = function(){
+        	var name = document.getElementById("uname").value;
+		    var password = document.getElementById("psw").value;
+        	var str = "注册成功!"+"<br><br><br>"+"用户名:"+name+"<br><br><br>"+"密码:"+password;
+        	document.getElementById("right").innerHTML = str;
+        }
+
+</script> 
+</html>
